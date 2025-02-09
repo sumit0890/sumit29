@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Newspaper Article</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .newspaper {
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .newspaper-header {
+            background: #007BFF;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .newspaper-content {
+            padding: 20px;
+        }
+
+        .article {
+            margin-bottom: 20px;
+        }
+
+        .article h2 {
+            margin: 0;
+            color: #333;
+        }
+
+        .article p {
+            color: #555;
+        }
+
+        .article .read-more {
+            display: inline-block;
+            margin-top: 10px;
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        .article .read-more:hover {
+            text-decoration: underline;
+        }
+
+        .newspaper-footer {
+            text-align: center;
+            padding: 10px;
+            background: #f1f1f1;
+        }
+
+        @media (max-width: 600px) {
+            .newspaper {
+                width: 95%;
+            }
+
+            .newspaper-header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="newspaper">
+        <header class="newspaper-header">
+            <h1>Daily News</h1>
+            <p>Your source for the latest news</p>
+        </header>
+        <main class="newspaper-content" id="article">
+            <!-- Article will be injected here by JavaScript -->
+        </main>
+        <footer class="newspaper-footer">
+            <p>&copy; 2023 Daily News. All rights reserved.</p>
+        </footer>
+    </div>
+    <script>
+        const article = {
+            title: "Breaking News: JavaScript Takes Over the World",
+            content: "In a surprising turn of events, JavaScript has become the most popular programming language in the world. Developers everywhere are rejoicing as they embrace the power of JS. This shift has led to a surge in job opportunities and innovative projects across various industries.",
+            link: "https://www.example.com/read-more"
+        };
+
+        function loadArticle() {
+            const articleContainer = document.getElementById('article');
+            const articleDiv = document.createElement('div');
+            articleDiv.classList.add('article');
+            articleDiv.innerHTML = `
+                <h2>${article.title}</h2>
+                <p>${article.content}</p>
+                <a href="${article.link}" class="read-more" target="_blank">Read More</a>
+            `;
+            articleContainer.appendChild(articleDiv);
+        }
+
+        // Load article when the page is ready
+        document.addEventListener('DOMContentLoaded', loadArticle);
+    </script>
+</body>
+</html>
